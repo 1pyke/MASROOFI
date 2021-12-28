@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+   <!-- Compiled and minified CSS -->
+   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.2/datatables.min.css"/>
+   <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+   <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.2/datatables.min.js"></script>
+   <style>
+     .username-screen,
+     .home-screen,
+     .submit-purchase-screen {
+       width: 100vw;
+       height: 100vh;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+     }
+
+     .home-screen-item {
+       margin-bottom: 10px;
+     }
+
+     .canvas-container {
+       width: 80vh;
+       height: 80vh;
+     }
+
+     .hide {
+       display: none;
+     }
+   </style>
+</head>
+<body>
+
+
+  <div id="username-screen" data-screen class="username-screen">
+    <div class="container">
+      <h1 class="center-align">Welcome to MASROFEEE</h1>
+      <h2 class="center-align">please enter your name</h2>
+      <form id="username-screen-form">
+        <div class="input-field col s6">
+          <input id="username-input" type="text" class="validate">
+          <label for="username-input">Name</label>
+        </div>
+        <div class="center-align">
+          <input type="submit" class="waves-effect waves-light btn-large"></input>  
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <div id="home-screen" data-screen class="home-screen container">
+      <button class="waves-effect waves-light btn-large home-screen-item" data-open-screen="submit-purchase-screen">Submit Purchase</button>
+      <button class="waves-effect waves-light btn-large home-screen-item" data-open-screen="history-screen">History</button>
+      <button class="waves-effect waves-light btn-large home-screen-item" data-open-screen="chart-screen">Charts</button>
+  </div>
+
+  <div id="submit-purchase-screen" data-screen class="submit-purchase-screen container">
+    <div>
+      <button class="back-button">Back</button>
+    </div>
+    <form id="submit-purchase-form">
+      <div class="input-field col s12">
+        <input id="amount-input" type="number" class="validate" step="0.01">
+        <label for="amount-input">Amount</label>
+      </div>
+
+      <div class="input-field col s12">
+        <select id="categories-input">
+          <option value="" disabled selected>Choose your option</option>
+        </select>
+        <label>Category</label>
+      </div>
+      
+      <div class="input-field col s12">
+        <input id="place-input" type="text" class="validate">
+        <label for="place-input">Place</label>
+      </div>
+
+      <div class="center-align">
+        <input type="submit" class="waves-effect waves-light btn-large"></input>  
+      </div>
+    </form>
+  </div>
+  <div id="history-screen" data-screen>
+    <button class="back-button">Back</button>
+    <table id="example" class="display" width="100%">
+      <!-- <tfoot>
+          <tr>
+              <th>Name</th>
+              <th>Position</th>
+              <th>Office</th>
+              <th>Age</th>
+              <th>Start date</th>
+              <th>Salary</th>
+          </tr>
+      </tfoot> -->
+    </table>
+  </div>
+  <div id="chart-screen" data-screen>
+    <button class="back-button">Back</button>
+    <div>
+      <span>Based On Category</span>
+      <button id="generate-pie-chart-button">Pie Chart</button>
+      <button id="generate-bar-chart-button">Bar Chart</button>
+    </div>
+    <div>
+      <span>Based On Date</span>
+      <!-- <button id="generate-pie-chart-button">Pie Chart</button> -->
+      <button id="generate-bar-chart-button-date">Bar Chart</button>
+    </div>
+
+
+    <div class="canvas-container">
+      <canvas id="myChart" width="300" height="300"></canvas>
+    </div>
+  </div>
+  
+
+
+
+
+
+
+
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+
+  <script src="main.js"></script>
+</body>
+</html>
